@@ -4,6 +4,8 @@ import ListCar from "./Listcar/ListCar";
 import Dropzone from "react-dropzone-uploader";
 import "react-dropzone-uploader/dist/styles.css";
 import { useState, useEffect } from "react";
+import { Bar, Pie } from "react-chartjs-2";
+import { Chart } from "chart.js/auto";
 
 function App() {
   const [files, setFiles] = useState();
@@ -25,8 +27,30 @@ function App() {
 
   useEffect(() => {}, [files]);
 
+  const dataChart = {
+    labels: ["January", "February", "March"],
+    datasets: [
+      {
+        label: "terjual",
+        backgroundColor: "royalblue",
+        data: [10, 3, 90],
+      },
+      {
+        label: "Tidak terjual",
+        backgroundColor: "salmon",
+        data: [3, 5, 61],
+      },
+    ],
+  };
+
   return (
     <>
+      {/* Data Visualiasi with react chart.js */}
+      <div style={{ width: 900 }}>
+        <Bar data={dataChart} />
+      </div>
+
+      {/* Media handling with react dropzone */}
       <Dropzone
         getUploadParams={getUploadParams}
         onChangeStatus={hanldeChangeStatus}
