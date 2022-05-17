@@ -4,11 +4,20 @@ import ListCar from "./Listcar/ListCar";
 import Dropzone from "react-dropzone-uploader";
 import "react-dropzone-uploader/dist/styles.css";
 import { useState, useEffect } from "react";
-import { Bar, Pie } from "react-chartjs-2";
+import { Bar, Doughnut } from "react-chartjs-2";
+// eslint-disable-next-line
 import { Chart } from "chart.js/auto";
 
 function App() {
   const [files, setFiles] = useState();
+  const [dataCar, setDataCar] = useState([]);
+
+  const getDataCar = async () => {
+    const data = await fetch(`https://rent-cars-api.herokuapp.com/admin/car`);
+    const result = await data.json();
+    setDataCar(result);
+    console.log(result);
+  };
 
   const getUploadParams = ({ meta }) => {
     setFiles(meta);
@@ -25,7 +34,9 @@ function App() {
     allFiles.forEach((data) => data.remove());
   };
 
-  useEffect(() => {}, [files]);
+  useEffect(() => {
+    getDataCar();
+  }, [files]);
 
   const dataChart = {
     labels: ["January", "February", "March"],
@@ -33,7 +44,7 @@ function App() {
       {
         label: "terjual",
         backgroundColor: "royalblue",
-        data: [10, 3, 90],
+        data: dataCar.map((item) => item.price),
       },
       {
         label: "Tidak terjual",
@@ -47,7 +58,7 @@ function App() {
     <>
       {/* Data Visualiasi with react chart.js */}
       <div style={{ width: 900 }}>
-        <Bar data={dataChart} />
+        <Bar data={dataChart} redraw={true} />
       </div>
 
       {/* Media handling with react dropzone */}
