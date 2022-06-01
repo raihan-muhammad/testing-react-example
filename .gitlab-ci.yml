@@ -3,8 +3,7 @@ stages:
   - test
   - deploy
 
-before_scripts:
-  image: node:lts
+image: node:lts
 
 build job:
   stage: build
