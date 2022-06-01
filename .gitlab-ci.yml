@@ -15,8 +15,13 @@ build job:
       - build/
       - node_modules
 
-
 test job:
   stage: test
   script:
     - yarn test
+
+deploy job:
+  stage: deploy
+  script:
+    - yarn add netlify-cli
+    - netlify deploy --dir=build --prod
