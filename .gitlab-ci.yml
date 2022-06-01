@@ -9,7 +9,7 @@ build job:
   script:
     - yarn build
   artifacts:
-    path:
+    paths:
       - build/
 
 
