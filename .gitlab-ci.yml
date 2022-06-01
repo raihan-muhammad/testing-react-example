@@ -1,0 +1,20 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build job:
+  stage: build
+  image: node:lts
+  script:
+    - yarn build
+  artifacts:
+    path:
+      - build/
+
+
+test job:
+  image: node:lts
+  stage: test
+  script:
+    - yarn test
