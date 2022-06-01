@@ -3,9 +3,11 @@ stages:
   - test
   - deploy
 
+before_scripts:
+  image: node:lts
+
 build job:
   stage: build
-  image: node:lts
   script:
     - yarn install
     - yarn build
@@ -16,7 +18,6 @@ build job:
 
 
 test job:
-  image: node:lts
   stage: test
   script:
     - yarn test
