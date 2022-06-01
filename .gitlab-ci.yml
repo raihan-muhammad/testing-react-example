@@ -23,5 +23,5 @@ test job:
 deploy job:
   stage: deploy
   script:
-    - yarn add netlify-cli
+    - yarn global add netlify-cli
     - netlify deploy --dir=build --prod
