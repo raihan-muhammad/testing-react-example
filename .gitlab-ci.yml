@@ -7,6 +7,7 @@ build job:
   stage: build
   image: node:lts
   script:
+    - yarn install
     - yarn build
   artifacts:
     paths:
