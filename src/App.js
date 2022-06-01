@@ -57,7 +57,7 @@ function App() {
   return (
     <>
       <h1>
-        <marque>Selamat Datang!</marque>
+        <marque>Selamat Datang di mana yaa!</marque>
       </h1>
       {/* Data Visualiasi with react chart.js */}
       <div style={{ width: 900 }}>
