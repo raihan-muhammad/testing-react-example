@@ -4,7 +4,7 @@ import ListCar from "./Listcar/ListCar";
 import Dropzone from "react-dropzone-uploader";
 import "react-dropzone-uploader/dist/styles.css";
 import { useState, useEffect } from "react";
-import { Bar, Doughnut } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 // eslint-disable-next-line
 import { Chart } from "chart.js/auto";
 
