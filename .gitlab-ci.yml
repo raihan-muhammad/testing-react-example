@@ -12,6 +12,7 @@ build job:
   artifacts:
     paths:
       - build/
+      - node_modules
 
 
 test job:
